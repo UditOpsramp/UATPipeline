@@ -22,16 +22,25 @@ def send_slack_message(SLACK_WEBHOOK_URL, portal_name, currentdate,alllabelstatu
             if "Pass" in i:
                 PassTestCaseList.append(i)
                 PassTestCase_color = "#5AAF00"
-
-    for j in [alllabelstatus,labelvaluesnotcoming]:
-        if "Not" in j:
-            FailTestCaseList.append(i)  
-            FailTestCase_color = "#D70000"              
-        else:
-            PassTestCaseList.append(i)
-            PassTestCase_color = "#5AAF00"
-
-
+                
+    for j in [alllabelstatus]:
+        for m in j :
+            if "Not" in m:
+                FailTestCaseList.append(m)  
+                FailTestCase_color = "#D70000"              
+            else:
+                PassTestCaseList.append(m)
+                PassTestCase_color = "#5AAF00"
+    
+    for k in [labelvaluesnotcoming]:
+        for n in k :
+            if "Not" in n:
+                FailTestCaseList.append(n)  
+                FailTestCase_color = "#D70000"              
+            else:
+                PassTestCaseList.append(n)
+                PassTestCase_color = "#5AAF00"   
+        
     for i in queryfilterstatuslist:
         if "Fail" in i:
             FailTestCaseList.append(i)
@@ -40,11 +49,11 @@ def send_slack_message(SLACK_WEBHOOK_URL, portal_name, currentdate,alllabelstatu
             PassTestCaseList.append(i)
             PassTestCase_color = "#5AAF00"
 
-    for j in FailTestCaseList:
-        failedtestcase = failedtestcase + "\n" + j
+    for l in FailTestCaseList:
+        failedtestcase = failedtestcase + "\n" + l
 
-    for j in PassTestCaseList:
-        passtestcase = passtestcase + "\n" + j
+    for l in PassTestCaseList:
+        passtestcase = passtestcase + "\n" + l
 
     SLACK_PAYLOAD = {
         "attachments": [
