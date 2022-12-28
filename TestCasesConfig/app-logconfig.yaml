@@ -1,0 +1,44 @@
+
+# If you want to add more source,copy whole dictionary (from souce_name*) till placeholder key and paste it at the end of file under inputs section with right intention.
+# source name key shoud be different for multiple sources like source_name1 , source_name2 and so on.
+
+---
+global:
+  ignore_older: 4h
+inputs:
+  source_name1:
+    type: "file" 
+    app: "agent" 
+    include:
+      - "/var/log/opsramp/agent.log"
+    exclude: 
+      - ""
+    regex: ""
+    custom_formatting: ""
+    time_format: ""
+    filters:
+      - key: ""
+        exclude: ""
+        include: ""
+    masking:
+      - text: ""
+        placeholder: ""
+# source_name2:
+#    type: "file" 
+#    app: "gateway" 
+#    include:
+#      - "/var/log/app/vprobe.log"
+#    exclude: 
+#      - ""
+#    regex: ""
+#    custom_formatting: ""
+#    time_format: ""
+#    filters:
+#      - key: ""
+#        exclude: ""
+#        include: ""
+#    masking:
+#      - text: ""
+#        placeholder: ""
+
+

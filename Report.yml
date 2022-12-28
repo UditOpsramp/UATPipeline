@@ -1,0 +1,23 @@
+AWS_Logs: 'App Name : AWS : Validation Pass - Logs are coming on portal'
+AZURE_Logs: 'App Name : AZURE : Validation Pass - Logs are coming on portal'
+AllLabelStatus: []
+Apps_Logs: 'App Name : agent : Validation Pass - Logs are coming on portal'
+Count_Logs: Validation Pass - All Logs are coming on portal
+FilteringLogs_Functionality: Validation Pass - Filtering Logs Functionality is Working
+  Properly
+FluentBit_Logs: 'App Name : Fluent-bit : Validation Pass - Logs are coming on portal'
+FluentD_Logs: 'App Name : FluentD : Validation Pass - Logs are coming on portal'
+GCP_Logs: 'App Name : GCP : Validation Pass - Logs are coming on portal'
+Host_Logs: 'Host : cluster-node-02 : Validation Pass - Logs are coming for that host'
+LabelValuesNotComing: []
+LineFilter_Functionality: Validation Pass - Line Filter Functionality is Working Properly
+LogAlertCreation: Validation Pass - Log Alert Definiton Created Successfully
+LogAlertDeletion: Validation Pass - Log Alert Definiton Deleted Successfully
+LogAlertGeneration: Validation Pass - Alert Generated Successfully
+MaskingLogs_Functionality: Validation Pass - Masking Logs Functionality is Working
+  Properly
+MultiFilter_Functionalty: Validation Pass - MultiFilter Functionality is  Working
+  Properly
+NotContains_Functionality: Validation Pass - Not Contains Query Filter Functionality
+  is Working Properly
+QueryFilter_Functionality: []

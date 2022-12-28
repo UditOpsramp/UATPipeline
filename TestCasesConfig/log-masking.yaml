@@ -1,0 +1,20 @@
+---
+global:
+  ignore_older: 4h
+inputs:
+  source_name:
+    type: file
+    app: log-masking
+    include:
+    - /home/LogsAutomation/*.log
+    exclude:
+    - ''
+    regex: ^(?P<timestamp>\d*/\d*/\d*\s*\d*:\d*:\d*)\s*(?P<level>[^\s]*)\s*(?P<count>\d*)\s*(?P<message>(?s).*)$
+    custom_formatting: ''
+    time_format: '%Y/%m/%d %H:%M:%S'
+    filters:
+    - key: ''
+      include: ''
+    masking:
+    - text: Opsramp Hyderabad
+      placeholder: Opsramp Bhimavaram
