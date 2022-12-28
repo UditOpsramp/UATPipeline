@@ -2,6 +2,7 @@
 
 import requests
 import yaml
+import ruamel.yaml
 import time
 import subprocess as sp
 
@@ -15,6 +16,23 @@ def LabelsTest(workdirectory, AuthToken, tenantid, portal, starttimeUNIX, endtim
     PostingLabels = ["app", "clusterName", "containerName", "eventCategory", "file_name", "file_path", "host", "level", "location", "logGroup", "logName", "logStream",
                      "messageType", "namespaceName", "operationName", "owner", "podName", "projectId", "resourceId", "resourceType", "resourceUUID", "subscriptionFilters", "tenantId", "type"]
 
+    with open(workdirectory + "/TestCasesConfig/label-logconfig.yaml", "r") as file:
+        labelconfigfile = yaml.load_all(file, Loader=yaml.FullLoader)
+        labelconfigfilelist = list(labelconfigfile)
+
+    for i in labelconfigfilelist:
+        for k, j in i['inputs'].items():
+            (j['include'][0]) = workdirectory + "/*.log"
+    
+    logconfigfile = yaml.safe_dump_all(labelconfigfilelist,sort_keys=False, explicit_start=True)
+    
+    yaml_new = ruamel.yaml.YAML(typ='safe')
+    data = yaml_new.load(logconfigfile)
+
+    with open(workdirectory + "/TestCasesConfig/label-logconfig.yaml", "w") as file:
+        yaml.dump(data, file,explicit_start=True,sort_keys=False)
+    
+    
     cmd = "sudo cp " + workdirectory + \
         "/TestCasesConfig/label-logconfig.yaml /opt/opsramp/agent/conf/log.d/log-config.yaml"
     sp.getoutput(cmd)
@@ -79,3 +97,4 @@ def ReomveLogsGenerator():
 
     cmd = "rm -rf *.log"
     sp.getoutput(cmd)
+
