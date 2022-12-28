@@ -4,7 +4,7 @@ import requests
 import json
 
 
-def send_slack_message(SLACK_WEBHOOK_URL, portal_name, currentdate, appslogsstaus, countlogsstaus, hostlogsstatus, queryfilterstatuslist,
+def send_slack_message(SLACK_WEBHOOK_URL, portal_name, currentdate,alllabelstatus,labelvaluesnotcoming, appslogsstaus, countlogsstaus, hostlogsstatus, queryfilterstatuslist,
                        notcontainsfunctionalitystatus, multifilterfunctionalitystatus, linefilterfunctionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus, awslogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus):
 
     FailTestCase_color = ""
@@ -22,6 +22,15 @@ def send_slack_message(SLACK_WEBHOOK_URL, portal_name, currentdate, appslogsstau
             if "Pass" in i:
                 PassTestCaseList.append(i)
                 PassTestCase_color = "#5AAF00"
+
+    for j in [alllabelstatus,labelvaluesnotcoming]:
+        if "Not" in j:
+            FailTestCaseList.append(i)  
+            FailTestCase_color = "#D70000"              
+        else:
+            PassTestCaseList.append(i)
+            PassTestCase_color = "#5AAF00"
+
 
     for i in queryfilterstatuslist:
         if "Fail" in i:
@@ -52,3 +61,4 @@ def send_slack_message(SLACK_WEBHOOK_URL, portal_name, currentdate, appslogsstau
         ]
     }
     return requests.post(SLACK_WEBHOOK_URL, json.dumps(SLACK_PAYLOAD))
+
