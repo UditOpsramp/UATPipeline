@@ -33,14 +33,14 @@ def send_googlechat_message(GOOGLECHAT_WEBHOOK_URL, portal_name, currentdate, TE
             test4status = test4status + "\n" + labelstatus
             
     test5status = ''
-    for i in labelvaluesnotcoming : 
-        if "Not" in i:
+    for j in labelvaluesnotcoming : 
+        if "Not" in j:
             labelvaluestatus = '<b><font color=\"#D70000\">' + \
-            i + '</font></b>'
+            j + '</font></b>'
             test5status = test5status + "\n" + labelvaluestatus
         else:
             labelvaluestatus = '<b><font color=\"#5AAF00\">' + \
-            i + '</font></b>'
+            j + '</font></b>'
             test5status = test5status + "\n" + labelvaluestatus         
                 
     if "Pass" in appslogsstaus:
@@ -106,12 +106,12 @@ def send_googlechat_message(GOOGLECHAT_WEBHOOK_URL, portal_name, currentdate, TE
             fluentbitlogsstatus + '</font></b>'
                
     test16status = ''
-    for j in queryfilterstatuslist:
-        if "Pass" in j:
-            queryfilterstatus = '<b><font color=\"#5AAF00\">' + j + '</font></b>'
+    for k in queryfilterstatuslist:
+        if "Pass" in k:
+            queryfilterstatus = '<b><font color=\"#5AAF00\">' + k + '</font></b>'
             test16status = test16status + "\n" + queryfilterstatus
         else:
-            queryfilterstatus = '<b><font color=\"#D70000\">' + i + '</font></b>'
+            queryfilterstatus = '<b><font color=\"#D70000\">' + k + '</font></b>'
             test16status = test16status + "\n" + queryfilterstatus
 
     if "Pass" in logalertcreationfunctionalitystatus:
