@@ -11,6 +11,6 @@ AWS_TOKEN: UY9tZEjy4ekcQmTg3wFMwCvekUeZFVxp
 AZURE_TOKEN: 6EzyJCCzJ96jApKm3JpSjMep46593Fr7
 GCP_TOKEN: thX2uk3jbBhqdRq7Qq5yCke4KBwzS7R8
 AWS_BUCKETNAME : logs-validation
-GOOGLECHAT_WEBHOOK_URL: https://chat.googleapis.com/v1/spaces/AAAASkbKjyE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=x1rUpPmWjpbNRqzbWAr1oYc7dFJhpJ2p2Wa9nXDhJSM%3D
+GOOGLECHAT_WEBHOOK_URL: https://chat.googleapis.com/v1/spaces/AAAAV4jeHC8/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=tp_r--y2kXuf9VkUSCd3m4hhBmYHTVCUGMr6gJ4wmkU%3D
 SLACK_WEBHOOK_URL: https://hooks.slack.com/services/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 
 Portal_Name: UAT
