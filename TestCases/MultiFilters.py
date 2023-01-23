@@ -17,7 +17,7 @@ def MultiFilter(workdirectory,AuthToken,tenantid,portal,starttimenanosec,endtime
                 +portal+\
                 "/logsrql/api/v7/tenants/"\
                 +tenantid+\
-                '/logs?query={app="agent",type="log",file_path="/var/log/opsramp/agent.log",level="Info"}&limit=51&start='\
+                '/logs?query={source="agent",type="log",file_path="/var/log/opsramp/agent.log",level="Info"}&limit=51&start='\
                 +str(starttimenanosec)+\
                 "&end="\
                 +str(endtimenanosec)

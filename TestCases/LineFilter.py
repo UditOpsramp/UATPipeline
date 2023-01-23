@@ -18,7 +18,7 @@ def LineFilter(workdirectory,AuthToken,tenantid,portal,starttimenanosec,endtimen
                 +portal+\
                 "/logsrql/api/v7/tenants/"\
                 +tenantid+\
-                '/logs?query={app="agent"}|="connectivity"&limit=51&start='\
+                '/logs?query={source="agent"}|="connectivity"&limit=51&start='\
                 +str(starttimenanosec)+\
                 "&end="\
                 +str(endtimenanosec)

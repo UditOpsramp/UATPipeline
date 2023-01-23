@@ -30,7 +30,7 @@ def FluentDLogs(workdirectory, AuthToken, portal, tenantid, starttimenanosec, en
         + portal +\
         "/logsrql/api/v7/tenants/"\
         + tenantid +\
-        '/logs?query={app="FluentD"}&limit=51&start='\
+        '/logs?query={source="FluentD"}&limit=51&start='\
         + str(starttimenanosec) +\
         "&end="\
         + str(endtimenanosec)
@@ -43,10 +43,10 @@ def FluentDLogs(workdirectory, AuthToken, portal, tenantid, starttimenanosec, en
         logsdata = logsresponsejson['data']
         logsresultdata = logsdata['result']
         if not logsresultdata:
-            status = "App Name : FluentD : Validation Fail - Logs are not coming on portal"
+            status = "Source Name : FluentD : Validation Fail - Logs are not coming on portal"
             parsedreportfile['FluentD_Logs'] = status
         else:
-            status = "App Name : FluentD : Validation Pass - Logs are coming on portal"
+            status = "Source Name : FluentD : Validation Pass - Logs are coming on portal"
             parsedreportfile['FluentD_Logs'] = status
 
     else:

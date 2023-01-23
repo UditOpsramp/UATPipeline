@@ -6,9 +6,8 @@
 global:
   ignore_older: 4h
 inputs:
-  source_name1:
-    type: "file" 
-    app: "agent" 
+  agent:
+    type: "file"  
     include:
       - "/var/log/opsramp/agent.log"
     exclude: 

@@ -28,7 +28,7 @@ def AWSLogs(workdirectory, AuthToken, awstoken, portal, tenantid, starttimenanos
         + portal +\
         "/logs/api/v1/tenants/"\
         + tenantid +\
-        "/logs?source=aws&token="\
+        "/aws/"\
         + awstoken
 
     payload = json.dumps({

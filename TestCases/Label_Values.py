@@ -62,3 +62,4 @@ def LabelValues(workdirectory, AuthToken, tenantid, portal, starttimeUNIX, endti
 
     with open(workdirectory + "/Report.yml", "w") as file:
         yaml.dump(parsedreportfile, file)
+

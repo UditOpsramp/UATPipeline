@@ -30,7 +30,7 @@ def FluentBitLogs(workdirectory, AuthToken, portal, tenantid, starttimenanosec, 
         + portal +\
         "/logsrql/api/v7/tenants/"\
         + tenantid +\
-        '/logs?query={app="Fluentbit"}&limit=51&start='\
+        '/logs?query={source="Fluentbit"}&limit=51&start='\
         + str(starttimenanosec) +\
         "&end="\
         + str(endtimenanosec)
@@ -42,10 +42,10 @@ def FluentBitLogs(workdirectory, AuthToken, portal, tenantid, starttimenanosec, 
         logsdata = logsresponsejson['data']
         logsresultdata = logsdata['result']
         if not logsresultdata:
-            status = "App Name : Fluent-bit : Validation Fail - Logs are not coming on portal"
+            status = "Source Name : Fluent-bit : Validation Fail - Logs are not coming on portal"
             parsedreportfile['FluentBit_Logs'] = status
         else:
-            status = "App Name : Fluent-bit : Validation Pass - Logs are coming on portal"
+            status = "Source Name : Fluent-bit : Validation Pass - Logs are coming on portal"
             parsedreportfile['FluentBit_Logs'] = status
 
     else:

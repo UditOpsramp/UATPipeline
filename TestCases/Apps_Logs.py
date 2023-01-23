@@ -25,10 +25,7 @@ def AppLogs(workdirectory,AuthToken,portal,tenantid,starttimenanosec,endtimenano
      
     for i in logconfigfilelist:
         for k,j in i['inputs'].items():
-            if not (j['app']):
-                app = (k)
-            else:    
-                app = (j['app']) 
+            app = (k)
         
             payload={}
             headers = {
@@ -40,7 +37,7 @@ def AppLogs(workdirectory,AuthToken,portal,tenantid,starttimenanosec,endtimenano
             +portal+\
             "/logsrql/api/v7/tenants/"\
             +tenantid+\
-            "/logs?query={app="\
+            "/logs?query={source="\
             '"'\
             +app+\
             '"'\
@@ -58,11 +55,11 @@ def AppLogs(workdirectory,AuthToken,portal,tenantid,starttimenanosec,endtimenano
                 logsdata = logsresponsejson['data']
                 logsresultdata = logsdata['result']
                 if not logsresultdata:
-                    status = "App Name : " + app + " : Validation Fail - Logs are not coming on portal"
-                    parsedreportfile['Apps_Logs'] = status
+                    status = "Source Name : " + app + " : Validation Fail - Logs are not coming on portal"
+                    parsedreportfile['Source_Logs'] = status
                 else:
-                    status = "App Name : " + app + " : Validation Pass - Logs are coming on portal"
-                    parsedreportfile['Apps_Logs'] = status
+                    status = "Source Name : " + app + " : Validation Pass - Logs are coming on portal"
+                    parsedreportfile['Source_Logs'] = status
 
             else:
                 status = log_response.text

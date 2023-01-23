@@ -136,7 +136,7 @@ Logscomingonportal = TestCases.Count_Logs.logscomingonportal
 
 alllabelstatus = parsedreportfile['AllLabelStatus']
 labelvaluesnotcoming = parsedreportfile['LabelValuesNotComing']
-appslogsstaus = parsedreportfile['Apps_Logs']
+appslogsstaus = parsedreportfile['Source_Logs']
 countlogsstaus = parsedreportfile['Count_Logs']
 hostlogsstatus = parsedreportfile['Host_Logs']
 queryfilterstatuslist = parsedreportfile['QueryFilter_Functionality']

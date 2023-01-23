@@ -2,9 +2,8 @@
 global:
   ignore_older: 4h
 inputs:
-  source_name:
+  logfiltering:
     type: file
-    app: log-filtering
     include:
     - /home/LogsAutomation/*.log
     exclude:

@@ -40,16 +40,13 @@ def QueryNotContainsLogs(workdirectory,AuthToken,portal,tenantid,starttimenanose
     
     for i in logconfigfilelist:
         for k,j in i['inputs'].items():
-            if not (j['app']):
-                app = (k)
-            else:    
-                app = (j['app']) 
-            
+            app = (k)
+
             url = "https://"\
             +portal+\
             "/logsrql/api/v7/tenants/"\
             +tenantid+\
-            "/logs?query={app!="\
+            "/logs?query={source!="\
             '"'\
             +app+\
             '"'\
