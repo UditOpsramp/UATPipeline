@@ -30,7 +30,7 @@ def FluentBitLogs(workdirectory, AuthToken, portal, tenantid, starttimenanosec, 
         + portal +\
         "/logsrql/api/v7/tenants/"\
         + tenantid +\
-        '/logs?query={source="Fluentbit"}&limit=51&start='\
+        '/logs?query={source="fluent-bit"}&limit=51&start='\
         + str(starttimenanosec) +\
         "&end="\
         + str(endtimenanosec)
