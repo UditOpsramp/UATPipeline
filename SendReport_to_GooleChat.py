@@ -3,9 +3,9 @@
 import requests
 
 
-def send_googlechat_message(GOOGLECHAT_WEBHOOK_URL, portal_name, currentdate, TESTCASE1, TESTCASE2, TESTCASE3, TESTCASE4, TESTCASE5, TESTCASE6, TESTCASE7, TESTCASE8, TESTCASE9, TESTCASE10, TESTCASE11, TESTCASE12, TESTCASE13, TESTCASE14, TESTCASE15, TESTCASE16, TESTCASE17, TESTCASE18, TESTCASE19, alllabelstatus,labelvaluesnotcoming, appslogsstaus, countlogsstaus, GeneratedLogsCount, Logscomingonportal, hostlogsstatus, queryfilterstatuslist,
-                                              notcontainsfunctionalitystatus, multifilterfunctionalitystatus, linefilterfunctionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus, awslogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus):
-    
+def send_googlechat_message(GOOGLECHAT_WEBHOOK_URL, portal_name, currentdate, TESTCASE1, TESTCASE2, TESTCASE3, TESTCASE4, TESTCASE5, TESTCASE6, TESTCASE7, TESTCASE8, TESTCASE9, TESTCASE10, TESTCASE11, TESTCASE12, TESTCASE13, TESTCASE14, TESTCASE15, TESTCASE16, TESTCASE17,TESTCASE18,TESTCASE19,TESTCASE20, alllabelstatus, labelvaluesnotcoming, appslogsstaus, countlogsstaus, GeneratedLogsCount, Logscomingonportal, hostlogsstatus, queryfilterstatuslist,
+                                                notcontainsfunctionalitystatus, multifilterfunctionalitystatus, linefilterfunctionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus, awslogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus,archivalstatus):    
+
     if "Pass" in awslogsstatus:
         test1status = '<b><font color=\"#5AAF00\">' + awslogsstatus + '</font></b>'
     else:
@@ -134,7 +134,15 @@ def send_googlechat_message(GOOGLECHAT_WEBHOOK_URL, portal_name, currentdate, TE
     else:
         test19status = '<b><font color=\"#D70000\">' + \
             logalertdeletionfunctionalitystatus + '</font></b>'
-            
+    
+    if "Done" in archivalstatus:
+        test20status = '<b><font color=\"#5AAF00\">' + \
+            archivalstatus + '</font></b>'      
+    else:
+        test20status = '<b><font color=\"#D70000\">' + \
+            archivalstatus + '</font></b>'        
+        
+                
     WEBHOOK_URL = GOOGLECHAT_WEBHOOK_URL
     title = portal_name + " LOGS AND LOG ALERT DEFINITION AUTOMATION REPORT"
     subtitle = currentdate
@@ -143,7 +151,7 @@ def send_googlechat_message(GOOGLECHAT_WEBHOOK_URL, portal_name, currentdate, TE
         test10status + '<b>' + TESTCASE11 + test11status + '<b>' + TESTCASE12 + test12status + '<b>' + TESTCASE13 + test13status + '<b>' + TESTCASE14 + test14status + \
        '<b>' + TESTCASE15 + test15status + '<b>' + TESTCASE16 + \
         test16status + '<b>' + TESTCASE17 + \
-        test17status + '<b>' + TESTCASE18 + test18status + '<b>' + TESTCASE19 + test19status
+        test17status + '<b>' + TESTCASE18 + test18status + '<b>' + TESTCASE19 + test19status + '<b>' + TESTCASE20 + test20status
     widget = {'textParagraph': {'text': paragraph}}
     res = requests.post(
         WEBHOOK_URL,
