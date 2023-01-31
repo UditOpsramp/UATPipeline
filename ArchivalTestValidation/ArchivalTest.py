@@ -74,10 +74,10 @@ def ArchivalTesting(workdirectory, tenantid, currenttime, bucketname, ArchivalFi
         dataonawsbucket = sp.getoutput(cmd)
 
         if dataonawsbucket != "":
-            status = "Archival is Done Successfully"
+            status = "Validation Pass : Archival is Done Successfully"
             parsedreportfile['Archival_Status'] = status
         else:
-            status = "Archival is Not Done Successfully"
+            status = "Validation Fail : Archival is Not Done Successfully"
             parsedreportfile['Archival_Status'] = status
     else:
         status = "File Size is not Reached to Defined Size" + ArchivalFileSize

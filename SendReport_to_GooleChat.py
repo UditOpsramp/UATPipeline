@@ -135,7 +135,7 @@ def send_googlechat_message(GOOGLECHAT_WEBHOOK_URL, portal_name, currentdate, TE
         test19status = '<b><font color=\"#D70000\">' + \
             logalertdeletionfunctionalitystatus + '</font></b>'
     
-    if "Done" in archivalstatus:
+    if "Pass" in archivalstatus:
         test20status = '<b><font color=\"#5AAF00\">' + \
             archivalstatus + '</font></b>'      
     else:
