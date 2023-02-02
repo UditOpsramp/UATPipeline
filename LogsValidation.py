@@ -23,7 +23,6 @@ import CloudAppsValidation.Azure_Logs
 import CloudAppsValidation.GCP_Logs
 import LogForwardApps.Fluentd_Logs
 import LogForwardApps.Fluentbit_Logs
-import ArchivalTestValidation.ArchivalTest
 import SendReport_to_GooleChat
 import SendReport_to_Slack
 
@@ -41,8 +40,6 @@ gcptoken = parsedconfigfile["GCP_TOKEN"]
 googlechat_webhook_url = parsedconfigfile["GOOGLECHAT_WEBHOOK_URL"]
 slack_webhook_url = parsedconfigfile["SLACK_WEBHOOK_URL"]
 portal_name = parsedconfigfile['Portal_Name']
-bucketname = parsedconfigfile['AWS_BUCKETNAME']
-ArchivalFileSize = parsedconfigfile['ArchivalFileSize']
 
 currentdate = datetime.date.today().strftime("%d %b %Y")
 currenttime = datetime.datetime.utcnow()
@@ -131,9 +128,6 @@ TESTCASE19 = "\n\nTEST CASE-19 : VALIDATION OF DELETION OF LOG-ALERT DEFINITION\
 AlertDefintionValidation.DeleteAlertDefinition.DeleteLogAlertDefinition(
     workdirectory, AuthToken, portal, tenantid)
 
-TESTCASE20 = "\n\nTEST CASE-20 : VALIDATION OF ARCHIVAL FUNCTIONALITY\n\n"
-ArchivalTestValidation.ArchivalTest.ArchivalTesting(workdirectory, tenantid , currenttime , bucketname , ArchivalFileSize)
-
 reportfile = open(workdirectory + "/Report.yml")
 parsedreportfile = yaml.load(reportfile, Loader=yaml.FullLoader)
 
@@ -159,14 +153,13 @@ azurelogsstatus = parsedreportfile['AZURE_Logs']
 gcplogsstatus = parsedreportfile['GCP_Logs']
 fluentdlogsstatus = parsedreportfile['FluentD_Logs']
 fluentbitlogsstatus = parsedreportfile['FluentBit_Logs']
-archivalstatus = parsedreportfile['Archival_Status']
 
 GOOGLECHAT_WEBHOOK_URL = googlechat_webhook_url
 
 SLACK_WEBHOOK_URL = slack_webhook_url
 
-SendReport_to_GooleChat.send_googlechat_message(GOOGLECHAT_WEBHOOK_URL, portal_name, currentdate, TESTCASE1, TESTCASE2, TESTCASE3, TESTCASE4, TESTCASE5, TESTCASE6, TESTCASE7, TESTCASE8, TESTCASE9, TESTCASE10, TESTCASE11, TESTCASE12, TESTCASE13, TESTCASE14, TESTCASE15, TESTCASE16, TESTCASE17,TESTCASE18,TESTCASE19,TESTCASE20, alllabelstatus, labelvaluesnotcoming, appslogsstaus, countlogsstaus, GeneratedLogsCount, Logscomingonportal, hostlogsstatus, queryfilterstatuslist,
-                                                notcontainsfunctionalitystatus, multifilterfunctionalitystatus, linefilterfunctionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus, awslogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus,archivalstatus)
+SendReport_to_GooleChat.send_googlechat_message(GOOGLECHAT_WEBHOOK_URL, portal_name, currentdate, TESTCASE1, TESTCASE2, TESTCASE3, TESTCASE4, TESTCASE5, TESTCASE6, TESTCASE7, TESTCASE8, TESTCASE9, TESTCASE10, TESTCASE11, TESTCASE12, TESTCASE13, TESTCASE14, TESTCASE15, TESTCASE16, TESTCASE17,TESTCASE18,TESTCASE19, alllabelstatus, labelvaluesnotcoming, appslogsstaus, countlogsstaus, GeneratedLogsCount, Logscomingonportal, hostlogsstatus, queryfilterstatuslist,
+                                                notcontainsfunctionalitystatus, multifilterfunctionalitystatus, linefilterfunctionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus, awslogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus)
 
 SendReport_to_Slack.send_slack_message(SLACK_WEBHOOK_URL, portal_name, currentdate,alllabelstatus,labelvaluesnotcoming, appslogsstaus, countlogsstaus, hostlogsstatus, queryfilterstatuslist,
                                        notcontainsfunctionalitystatus, multifilterfunctionalitystatus, linefilterfunctionalitystatus, filteringlogsfunctionalitystatus, maskinglogsfunctionalitystatus, logalertcreationfunctionalitystatus, logalertgenerationfunctionalitystatus, logalertdeletionfunctionalitystatus, awslogsstatus, azurelogsstatus, gcplogsstatus, fluentdlogsstatus, fluentbitlogsstatus)
