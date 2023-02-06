@@ -57,7 +57,7 @@ def LabelValues(workdirectory, AuthToken, tenantid, portal, starttimeUNIX, endti
                     status = "Value is Coming for " + i + " Label Attribute" 
                     LabelValuesNotComing.append(status)   
             else:
-                status = "Value Not Coming for " + i + " Label Attribute"
+                status = value_response.reason
                 LabelValuesNotComing.append(status)
 
     with open(workdirectory + "/Report.yml", "w") as file:
